@@ -66,7 +66,7 @@ void TEvaluator::setInstance(const string& filename) {
 	}
 
 	if( strcmp( type, "EUC_2D" ) == 0  ) {
-		std::cout << fEdgeDis.size() << " " << fEdgeDis[0].size() << std::endl;
+		//std::cout << fEdgeDis.size() << " " << fEdgeDis[0].size() << std::endl;
 		for( int i = 0; i < Ncity ; ++i )
 			for( int j = 0; j < Ncity ; ++j )
 				fEdgeDis[ i ][ j ]=(int)(sqrt((x[i]-x[j])*(x[i]-x[j])+(y[i]-y[j])*(y[i]-y[j]))+0.5);

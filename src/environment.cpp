@@ -1,7 +1,7 @@
 /*
  * environment.cpp
  *   created on: April 24, 2013
- * last updated: May 10, 2020
+ * last updated: May 2022
  *       author: Shujia Liu
  */
 
@@ -58,7 +58,7 @@ void TEnvironment::doIt(){
 	this->getEdgeFreq();
 	while( 1 ){
 		this->setAverageBest();
-		printf( "%d:\t%d\t%lf\n", fCurNumOfGen, fBestValue, fAverageValue );
+		printf("gen %d:\t%d\t%.2f\n", fCurNumOfGen, fBestValue, (double)(clock() - this->fTimeStart)/(double)CLOCKS_PER_SEC);
 		if( this->terminationCondition() ) break;
 
 		this->selectForMating();
@@ -147,7 +147,7 @@ void TEnvironment::generateKids( int s ){
 
 void TEnvironment::getEdgeFreq(){
 	int  k0, k1, N = fEvaluator->Ncity;
-	std::cout << fEdgeFreq.size() << " " << fEdgeFreq[0].size() << std::endl;
+	//std::cout << fEdgeFreq.size() << " " << fEdgeFreq[0].size() << std::endl;
 	for( int j1 = 0; j1 < N; ++j1 )
 		for( int j2 = 0; j2 < N; ++j2 )
 			fEdgeFreq[ j1 ][ j2 ] = 0;
@@ -162,9 +162,9 @@ void TEnvironment::getEdgeFreq(){
 }
 
 void TEnvironment::printOn( int n ){
-	printf( "n = %d val = %d Gen = %d Time = %d %d\n" , n, tBest.fEvaluationValue, fCurNumOfGen,
-		(int)((double)(this->fTimeInit - this->fTimeStart)/(double)CLOCKS_PER_SEC),
-		(int)((double)(this->fTimeEnd - this->fTimeStart)/(double)CLOCKS_PER_SEC) );
+	printf("run %d: best %d, gen %d, init %.2f, total %.2f\n\n" , n, tBest.fEvaluationValue, fCurNumOfGen,
+		(double)(this->fTimeInit - this->fTimeStart)/(double)CLOCKS_PER_SEC,
+		(double)(this->fTimeEnd - this->fTimeStart)/(double)CLOCKS_PER_SEC);
 	fflush(stdout);
 
 }
