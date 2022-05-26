@@ -17,13 +17,13 @@
 using namespace std;
 
 int main( int argc, char* argv[] ){
-	InitURandom(); 
+	InitURandom(atoi(argv[2])); 
 	int maxNumOfTrial;
 
 	TEnvironment* gEnv = new TEnvironment();
 	gEnv->fFileNameTSP = argv[1];
 			
-	maxNumOfTrial = 10; // repeated times
+	maxNumOfTrial = 9999; // repeated times
 	gEnv->Npop = 100; // number of items
 	gEnv->Nch = 30; // number of offsprings
 
