@@ -59,6 +59,7 @@ void TEnvironment::doIt(){
 	while( 1 ){
 		this->setAverageBest();
 		printf("gen %d:\t%d\t%.2f\n", fCurNumOfGen, fBestValue, (double)(clock() - this->fTimeStart)/(double)CLOCKS_PER_SEC);
+	    fflush(stdout);
 		if( this->terminationCondition() ) break;
 
 		this->selectForMating();
